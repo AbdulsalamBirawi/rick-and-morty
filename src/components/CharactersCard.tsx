@@ -9,14 +9,16 @@ import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addfavourite,
+  selectfavourite,
   removeFromFavourite,
 } from "../app/features/favouriteReducer";
 const CharactersCard = ({ character, favorite }: any) => {
   const theme = useTheme();
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const fav = useSelector(selectfavourite);
   const dispatch = useDispatch();
   return (
     <Card
@@ -64,6 +66,7 @@ const CharactersCard = ({ character, favorite }: any) => {
               }
             }}
             {...label}
+            checked={fav.includes(character.id)}
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}
           />

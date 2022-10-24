@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Button, CardMedia, CircularProgress, Typography } from "@mui/material";
@@ -41,7 +41,9 @@ const CharacterDetails = () => {
   return (
     <Box>
       <Box mt={2}>
-        <Button href="/">back to characters</Button>
+        <Button>
+          <Link to="/">back to characters</Link>
+        </Button>
       </Box>
       <Card style={{ marginTop: "30px" }}>
         <Box display="flex" m={5} justifyContent="center">
